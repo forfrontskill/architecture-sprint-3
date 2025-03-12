@@ -12,7 +12,6 @@ entity "Device" as e01 {
   name : text
   type : text
   status : text
-  owner_id: uuid
   registration_at : Date
 }
 
@@ -33,7 +32,6 @@ entity "House" as e03 {
   name : string
   icon_url: string
   description: string
-  owner_id: UUID
   created_at : Date
 }
 
@@ -46,8 +44,33 @@ entity "SensorHistory" as e04 {
   created_at : Date
 }
 
+entity "User" as e05 {
+  *id : UUID <<generated>>
+  name : string
+  email : string
+  birthdate : Date
+  role : String
+  String : password
+  registrationAt : Date
+}
+
+entity "User_to_house" as e06 {
+  house_id: UUID
+  owner_id: UUID
+}
+
+entity "User_to_device" as e07 {
+  device_id: UUID
+  owner_id: UUID
+}
+
 e01 |o..|| e02
 e02 }o..|| e03
 e01 ||..o{ e04
+e05 ||..o{ e01
+e05 ||..o{ e06
+e03 ||..o{ e06
+e05 ||..o{ e07
+e01 ||..o{ e07
 
 @enduml

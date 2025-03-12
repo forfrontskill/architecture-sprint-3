@@ -13,7 +13,7 @@ class Device {
   +List<SensorHistory> memberships
   +Date registrationAt
   +UUID roomId
-  +UUID ownerId
+  +List<UUID> ownerId
 }
 
 enum DeviceType {
@@ -58,15 +58,27 @@ class House {
   +String name
   +String iconUrl
   +String description
-  +UUID ownerId
+  +List<UUID> ownerId
   +Date createAt
+}
+
+class User {
+  +UUID id
+  +String name
+  +String email
+  +Date birthdate
+  +String role
+  +String password
+  +Date registrationAt
 }
 
 Device "1" -- "0..*" SensorHistory : has
 Device "1" -- "1" DeviceType : has
 Device "1" -- "1" DeviceStatus : has
 Device "1" -- "1" Room : has
+Device "1" -- "0..*" User : has
 House "1" -- "0..*" Room : has
+House "1" -- "0..*" User : has
 SensorHistory "1" -- "1" SensorType : has
 
 @enduml

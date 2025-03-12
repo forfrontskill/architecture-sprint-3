@@ -21,13 +21,13 @@ Container_Boundary(WarmHouse, "WarmHouse System") {
   Container(MobileGateWayAPI, "Mobile API Gateway", "Kong", "Внешний API для мобильного приложения")
   Container(WebAdminGateWayAPI, "Admin API Gateway", "Kong", "Внешний API для WEB приложения инженеров сопровождения")
   
-  Container(PlaceService, "Place Service", "Java Spring", "Сервси отвечающий за хранение информации о месте установки датчиков")
+  Container(PlaceService, "Place Service", "Java Spring", "Сервис отвечающий за хранение информации о месте установки датчиков")
   ContainerDb(PlaceDB, "PlaceDB", "PostgreSQL", "House, room, owner")
   
-  Container(UserService, "User Service", "Java Spring", "Сервси отвечающий за хранение информации о пользователе. Регистрации, авторизации, персональной информации")
+  Container(UserService, "User Service", "Java Spring", "Сервис отвечающий за хранение информации о пользователе. Регистрации, авторизации, персональной информации")
   ContainerDb(UserDB, "UserDB", "PostgreSQL", "House, room, owner")
 
-  Container(DeviceService, "Device Service", "Java Spring", "Сервси отвечающий за хранение информации о устройствах. Регистрации, управлении, детальной информации")
+  Container(DeviceService, "Device Service", "Java Spring", "Сервис отвечающий за хранение информации о устройствах. Регистрации, управлении, детальной информации")
   ContainerDb(DeviceDB, "DeviceDB", "PostgreSQL", "Device")
 
   Container(DeviceGateWayAPI, "Device API Gateway", "Kong", "Внешний API для управления и сбора информации с устройств")
